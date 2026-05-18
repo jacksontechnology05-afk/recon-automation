@@ -20,6 +20,53 @@ To streamline reconnaissance during penetration testing engagements and improve 
 ---
 
 ## 👨‍💻 Author
+
+
+
+# Installation & Usage
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/jacksontechnology05-afk/recon-automation.git
+```
+
+## Navigate into the Project Directory
+
+```bash
+cd recon-automation
+```
+
+## Install Required Python Packages
+
+```bash
+pip install requests python-whois --break-system-packages
+```
+
+## Run the Toolkit
+
+```bash
+python3 main.py
+```
+
+# Available Modules
+
+1. Port Scanner
+2. Banner Grabber
+3. WHOIS Lookup
+4. HTTP Headers Analyzer
+5. SSL Checker
+6. Subdomain Enumeration
+
+# Disclaimer
+
+This toolkit is intended strictly for:
+- Educational Purposes
+- Authorized Security Assessments
+- Ethical Penetration Testing
+- Security Research
+
+Unauthorized usage of systems without proper authorization is strictly prohibited.
 Cybersecurity Analyst | Penetration Tester | VAPT Specialist
 
 ---
