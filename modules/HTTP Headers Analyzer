@@ -3,21 +3,13 @@ import requests
 url = input("Enter target URL (https://example.com): ")
 
 try:
-
     response = requests.get(url, timeout=5)
 
-    print("\n===================================================")
-    print("              HTTP HEADERS ANALYZER")
-    print("===================================================\n")
+    print("\n[+] HTTP Headers:\n")
 
     for header, value in response.headers.items():
-
         print(f"{header}: {value}")
 
-    print("\n===================================================")
-    print("         HEADERS RETRIEVED SUCCESSFULLY")
-    print("===================================================\n")
-
 except Exception as e:
+    print(f"[-] Error: {e}")
 
-    print(f"\n[-] Error: {e}")
