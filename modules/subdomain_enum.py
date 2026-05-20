@@ -1,14 +1,21 @@
-import requests
-
-subdomains = ["www", "mail", "ftp", "test"]
+import socket
 
 domain = input("Enter domain: ")
 
+subdomains = ["www", "mail", "ftp", "admin", "test", "dev"]
+
+print(f"\n[+] Enumerating subdomains for {domain}\n")
+
 for sub in subdomains:
-    url = f"http://{sub}.{domain}"
+
+    subdomain = f"{sub}.{domain}"
 
     try:
-        requests.get(url)
-        print(f"[+] Found: {url}")
-    except requests.ConnectionError:
+
+        ip = socket.gethostbyname(subdomain)
+
+        print(f"[+] Found: {subdomain} --> {ip}")
+
+    except:
+
         pass
