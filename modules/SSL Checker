@@ -1,47 +1,28 @@
 import ssl
 import socket
-from urllib.parse import urlparse
 
-# Get input and clean it up in case the user accidentally pastes an entire URL
-user_input = input("Enter domain or URL (e.g., example.com): ").strip()
-
-# Quick extraction: if they pasted "https://example.com/path", pull out just "example.com"
-if "://" in user_input:
-    hostname = urlparse(user_input).netloc
-else:
-    hostname = user_input.split('/')[0]
+hostname = input("Enter domain: ")
 
 context = ssl.create_default_context()
 
 try:
-    print(f"\n[*] Connecting to {hostname} over port 443...")
-    with socket.create_connection((hostname, 443), timeout=5) as sock:
-        with context.wrap_socket(sock, server_hostname=hostname) as ssock:
-            cert = ssock.getpeercert()
-            
-            print("\n[+] SSL Certificate Information:\n" + "="*40)
-            
-            # 1. Extract Issuer (Who signed it)
-            issuer = dict(x[0] for x in cert.get('issuer', ()))
-            common_name = issuer.get('commonName', 'Unknown')
-            organization = issuer.get('organizationName', 'Unknown')
-            print(f"Issuer CA    : {common_name} ({organization})")
-            
-            # 2. Extract Validity Dates
-            print(f"Issued On    : {cert.get('notBefore')}")
-            print(f"Expires On   : {cert.get('notAfter')}")
-            
-            # 3. Extract Subject Alternative Names (Other domains covered)
-            san = cert.get('subjectAltName', [])
-            domains = [name[1] for name in san if name[0] == 'DNS']
-            print(f"Covered Domains: {', '.join(domains[:5])}") 
-            if len(domains) > 5:
-                print(f"               ... and {len(domains) - 5} more domains.")
-            print("="*40)
 
-except socket.timeout:
-    print(f"\n[-] Error: Connection timed out trying to reach {hostname}.")
-except ssl.SSLCertVerificationError as e:
-    print(f"\n[-] SSL Verification Error: {e.reason} (The certificate might be self-signed or expired).")
+    with socket.create_connection((hostname, 443), timeout=5) as sock:
+
+        with context.wrap_socket(sock, server_hostname=hostname) as ssock:
+
+            cert = ssock.getpeercert()
+
+            print("\n===================================================")
+            print("            SSL CERTIFICATE CHECKER")
+            print("===================================================\n")
+
+            print(cert)
+
+            print("\n===================================================")
+            print("        SSL CERTIFICATE RETRIEVED")
+            print("===================================================\n")
+
 except Exception as e:
+
     print(f"\n[-] Error: {e}")
