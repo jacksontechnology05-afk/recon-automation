@@ -1,21 +1,23 @@
-import requests  # Fixed the spelling here
+import requests
 
-url = input("Enter target URL (e.g., example.com): ").strip()
-
-# Automatically add https:// if the user forgot to type it
-if not url.startswith(("http://", "https://")):
-    url = f"https://{url}"
+url = input("Enter target URL (https://example.com): ")
 
 try:
-    # Added a standard User-Agent header so target servers don't block the request
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
-    response = requests.get(url, headers=headers, timeout=5)
 
-    print(f"\n[+] HTTP Headers for {url}:\n")
+    response = requests.get(url, timeout=5)
+
+    print("\n===================================================")
+    print("              HTTP HEADERS ANALYZER")
+    print("===================================================\n")
+
     for header, value in response.headers.items():
+
         print(f"{header}: {value}")
 
-except requests.exceptions.RequestException as e:
-    print(f"\n[-] Connection Error: {e}")
+    print("\n===================================================")
+    print("         HEADERS RETRIEVED SUCCESSFULLY")
+    print("===================================================\n")
+
 except Exception as e:
-    print(f"\n[-] Unexpected Error: {e}")
+
+    print(f"\n[-] Error: {e}")
