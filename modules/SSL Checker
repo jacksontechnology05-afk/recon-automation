@@ -1,0 +1,22 @@
+import ssl
+import socket
+
+hostname = input("Enter domain: ")
+
+context = ssl.create_default_context()
+
+try:
+
+    with socket.create_connection((hostname, 443)) as sock:
+
+        with context.wrap_socket(sock, server_hostname=hostname) as ssock:
+
+            cert = ssock.getpeercert()
+
+            print("\n[+] SSL Certificate Information:\n")
+
+            print(cert)
+
+except Exception as e:
+
+    print(f"\n[-] Error: {e}")
