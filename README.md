@@ -1,55 +1,31 @@
-#  Recon Automation Toolkit
+# JACKSON RECON AUTOMATION TOOLKIT
 
-##  Overview
-Recon Automation Toolkit is a Python-based reconnaissance framework designed for cybersecurity professionals and penetration testers. It automates early-stage information gathering during security assessments.
+## Overview
 
----
+Jackson Recon Automation Toolkit is a Python-based cybersecurity reconnaissance and vulnerability assessment framework developed for ethical hackers, penetration testers, security analysts, and cybersecurity researchers.
 
-##  Features
-- Subdomain enumeration (planned)
-- Port scanning automation
-- DNS and host discovery
-- HTTP header analysis (planned)
-- OSINT data collection modules
+The toolkit automates reconnaissance, information gathering, and basic vulnerability assessment tasks during authorized security assessments.
 
 ---
 
-##  Purpose
-To streamline reconnaissance during penetration testing engagements and improve efficiency in the information gathering phase.
+## Features
+
+- Port Scanning
+- Banner Grabbing
+- WHOIS Lookup
+- HTTP Headers Analysis
+- SSL Certificate Checking
+- Subdomain Enumeration
+- Security Headers Vulnerability Assessment
+- OWASP Top 10 Mapping
+- CVSS Risk Classification
+- ISO 27001 Compliance References
+- NIST Framework References
+- PCI-DSS Compliance Mapping
 
 ---
 
-## 👨‍💻 Author
-
-
-
-# Installation & Usage
-
-## Clone the Repository
-
-```bash
-git clone https://github.com/jacksontechnology05-afk/recon-automation.git
-```
-
-## Navigate into the Project Directory
-
-```bash
-cd recon-automation
-```
-
-## Install Required Python Packages
-
-```bash
-pip install requests python-whois --break-system-packages
-```
-
-## Run the Toolkit
-
-```bash
-python3 main.py
-```
-
-# Available Modules
+## Available Modules
 
 1. Port Scanner
 2. Banner Grabber
@@ -57,19 +33,17 @@ python3 main.py
 4. HTTP Headers Analyzer
 5. SSL Checker
 6. Subdomain Enumeration
-
-# Disclaimer
-
-This toolkit is intended strictly for:
-- Educational Purposes
-- Authorized Security Assessments
-- Ethical Penetration Testing
-- Security Research
-
-Unauthorized usage of systems without proper authorization is strictly prohibited.
-Cybersecurity Analyst | Penetration Tester | VAPT Specialist
+7. Security Headers Vulnerability Scanner
+8. Exit Toolkit
 
 ---
 
-## ⚠️ Disclaimer
-This project is for educational and ethical cybersecurity purposes only.
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/jacksontechnology05-afk/recon-automation.git
+
+
+ 
