@@ -1,4 +1,3 @@
-import os
 
 while True:
 
@@ -9,8 +8,8 @@ while True:
              JACKSON RECON AUTOMATION TOOLKIT
 ============================================================
 
-Author: Jackson Nnkemdilim Godwin
-Role  : Cybersecurity Analyst & Penetration Tester
+Author : Jackson Nnkemdilim Godwin
+Role   : Cybersecurity Analyst & Penetration Tester
 
 "With great power comes great responsibility."
 
