@@ -34,7 +34,8 @@ authorization is strictly prohibited.
 5. SSL Checker
 6. Subdomain Enumeration
 7. Security Headers Vulnerability Scanner
-8. Exit Toolkit
+8. Email Recon
+9. Exit Toolkit
 
 ============================================================
 """)
@@ -63,6 +64,9 @@ authorization is strictly prohibited.
         exec(open("modules/security_headers_scanner.py").read())
 
     elif choice == "8":
+        exec(open("modules/email_recon.py").read())
+
+    elif choice == "9":
         print("\n[+] Exiting Toolkit...")
         break
 
