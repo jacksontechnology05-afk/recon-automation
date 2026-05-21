@@ -1,4 +1,4 @@
- import os
+import os
 
 while True:
 
@@ -73,4 +73,4 @@ authorization is strictly prohibited.
     else:
         print("\n[-] Invalid option.")
 
-    input("\nPress ENTER to continue...")
+    input("\nPress ENTER to continue...") 
