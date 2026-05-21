@@ -4,17 +4,26 @@ target = input("Enter target IP or domain: ")
 
 ports = [20, 21, 22, 23, 25, 53, 80, 110, 135, 139, 143, 443, 445, 3306, 3389, 8080]
 
-print(f"\n[+] Scanning {target}...\n")
+try:
 
-for port in ports:
+    ip = socket.gethostbyname(target)
 
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    print(f"\n[+] Resolved IP: {ip}")
+    print(f"[+] Scanning {target}...\n")
 
-    s.settimeout(1)
+    for port in ports:
 
-    result = s.connect_ex((target, port))
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    if result == 0:
-        print(f"[+] Port {port} is OPEN")
+        s.settimeout(1)
 
-    s.close()
+        result = s.connect_ex((target, port))
+
+        if result == 0:
+            print(f"[+] Port {port} is OPEN")
+
+        s.close()
+
+except socket.gaierror:
+
+    print("\n[-] Invalid domain or host unreachable.")
