@@ -14,10 +14,6 @@ try:
 
         print(f"{header}: {value}")
 
-    print("\n===================================================")
-    print("         HEADERS RETRIEVED SUCCESSFULLY")
-    print("===================================================\n")
-
 except Exception as e:
 
     print(f"\n[-] Error: {e}")
