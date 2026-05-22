@@ -1,4 +1,4 @@
-mport re
+import re
 import socket
 
 email = input("Enter target email: ")
