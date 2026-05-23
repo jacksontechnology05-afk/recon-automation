@@ -90,16 +90,16 @@ authorization is strictly prohibited.
         exec(open("modules/email_osint.py").read())
 
     elif choice == "8":
-        print("\n[+] DNS / MX Record Lookup module under development.")
+        exec(open("modules/dns_mx_lookup.py").read())
 
     elif choice == "9":
-        print("\n[+] Public Breach Checker module under development.")
+        exec(open("modules/breach_checker.py").read())
 
     elif choice == "10":
-        print("\n[+] Employee Email Pattern Discovery module under development.")
+        exec(open("modules/employee_pattern.py").read())
 
     elif choice == "11":
-        print("\n[+] SPF / DMARC Validator module under development.")
+        exec(open("modules/spf_dmarc_validator.py").read())
 
     # VULNERABILITY VALIDATION
 
@@ -107,18 +107,18 @@ authorization is strictly prohibited.
         exec(open("modules/security_headers_scanner.py").read())
 
     elif choice == "13":
-        print("\n[+] OWASP Top 10 Validator module under development.")
+        exec(open("modules/owasp_validator.py").read())
 
     elif choice == "14":
-        print("\n[+] TLS Misconfiguration Scanner module under development.")
+        exec(open("modules/tls_misconfig.py").read())
 
     elif choice == "15":
-        print("\n[+] CVE Fingerprinting module under development.")
+        exec(open("modules/cve_fingerprint.py").read())
 
     # REPORTING & COMPLIANCE
 
     elif choice == "16":
-        print("\n[+] Compliance Mapper module under development.")
+        exec(open("modules/compliance_mapper.py").read())
 
     # EXIT
 
