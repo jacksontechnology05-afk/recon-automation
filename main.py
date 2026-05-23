@@ -1,87 +1,132 @@
- 
-import dns.resolver
+import os
 
-domain = input("Enter target domain: ")
+while True:
 
-print("\n===================================================")
-print("        EMAIL & OSINT RECONNAISSANCE")
-print("===================================================\n")
+    os.system("clear")
 
-# Common email patterns
+    print("""
+============================================================
+         JACKSON SECURITY ASSESSMENT FRAMEWORK
+============================================================
 
-emails = [
-    f"admin@{domain}",
-    f"support@{domain}",
-    f"info@{domain}",
-    f"hr@{domain}",
-    f"contact@{domain}"
-]
+Author : Jackson Nnkemdilim Godwin
+Role   : Cybersecurity Analyst & Penetration Tester
 
-print("[+] Common Email Addresses Found:\n")
+"Think no evil. Do no evil."
 
-for email in emails:
-    print(email)
+This framework is intended strictly for:
+- Educational Purposes
+- Authorized Security Assessments
+- Ethical Penetration Testing
+- Security Research
 
-print("\n===================================================")
+Unauthorized usage against systems without proper
+authorization is strictly prohibited.
 
-# MX RECORD LOOKUP
+============================================================
+        RECON • OSINT • EXPOSURE • VALIDATION
+============================================================
 
-try:
+[ RECONNAISSANCE ]
 
-    mx_records = dns.resolver.resolve(domain, 'MX')
+1. Port Scanner
+2. Banner Grabber
+3. WHOIS Lookup
+4. HTTP Headers Analyzer
+5. SSL Checker
+6. Subdomain Enumeration
 
-    print("\n[+] MX Records:\n")
+[ OSINT & EXPOSURE ]
 
-    for mx in mx_records:
-        print(mx.exchange)
+7. Email & OSINT Recon
+8. DNS / MX Record Lookup
+9. Public Breach Checker
+10. Employee Email Pattern Discovery
+11. SPF / DMARC Validator
 
-except Exception as e:
+[ VULNERABILITY VALIDATION ]
 
-    print(f"\n[-] MX Lookup Error: {e}")
+12. Security Headers Scanner
+13. OWASP Top 10 Validator
+14. TLS Misconfiguration Scanner
+15. CVE Fingerprinting
 
-print("\n===================================================")
+[ REPORTING & COMPLIANCE ]
 
-# SPF CHECK
+16. Compliance Mapper
 
-try:
+[ EXIT ]
 
-    txt_records = dns.resolver.resolve(domain, 'TXT')
+17. Exit Framework
 
-    spf_found = False
-
-    for record in txt_records:
-
-        record_text = str(record)
-
-        if "v=spf1" in record_text:
-
-            spf_found = True
-
-            print("\n[+] SPF Record Detected:")
-            print(record_text)
-
-    if not spf_found:
-
-        print("\n[-] No SPF Record Found")
-
-except Exception as e:
-
-    print(f"\n[-] SPF Check Error: {e}")
-
-print("\n===================================================")
-
-# BUSINESS RISK
-
-print("""
-Business Risk:
-Exposed company email addresses may increase
-phishing and credential attack exposure.
-
-Recommendation:
-Implement MFA, SPF, DKIM, and DMARC protections.
-
-Compliance Mapping:
-ISO 27001 A.5.7
-NIST PR.AC-1
-PCI-DSS Requirement 8
+============================================================
 """)
+
+    choice = input("Select option: ")
+
+    # RECONNAISSANCE
+
+    if choice == "1":
+        exec(open("modules/port_scanner.py").read())
+
+    elif choice == "2":
+        exec(open("modules/banner_grabber.py").read())
+
+    elif choice == "3":
+        exec(open("modules/whois_lookup.py").read())
+
+    elif choice == "4":
+        exec(open("modules/http_headers.py").read())
+
+    elif choice == "5":
+        exec(open("modules/ssl_checker.py").read())
+
+    elif choice == "6":
+        exec(open("modules/subdomain_enum.py").read())
+
+    # OSINT & EXPOSURE
+
+    elif choice == "7":
+        exec(open("modules/email_osint.py").read())
+
+    elif choice == "8":
+        print("\n[+] DNS / MX Record Lookup module under development.")
+
+    elif choice == "9":
+        print("\n[+] Public Breach Checker module under development.")
+
+    elif choice == "10":
+        print("\n[+] Employee Email Pattern Discovery module under development.")
+
+    elif choice == "11":
+        print("\n[+] SPF / DMARC Validator module under development.")
+
+    # VULNERABILITY VALIDATION
+
+    elif choice == "12":
+        exec(open("modules/security_headers_scanner.py").read())
+
+    elif choice == "13":
+        print("\n[+] OWASP Top 10 Validator module under development.")
+
+    elif choice == "14":
+        print("\n[+] TLS Misconfiguration Scanner module under development.")
+
+    elif choice == "15":
+        print("\n[+] CVE Fingerprinting module under development.")
+
+    # REPORTING & COMPLIANCE
+
+    elif choice == "16":
+        print("\n[+] Compliance Mapper module under development.")
+
+    # EXIT
+
+    elif choice == "17":
+        print("\n[+] Exiting Framework...")
+        break
+
+    else:
+        print("\n[-] Invalid option.")
+
+    input("\nPress ENTER to continue...")
