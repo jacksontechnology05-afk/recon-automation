@@ -1,24 +1,82 @@
-email = input("Enter email address: ")
+import re
+import socket
+
+target = input("Enter email address: ")
 
 print("\n===================================================")
 print("          PUBLIC BREACH EXPOSURE CHECK")
 print("===================================================\n")
 
-print(f"[+] Checking exposure for: {email}")
+# EMAIL VALIDATION
 
-print("""
-Risk Advisory:
-If employee credentials are exposed in public breaches,
-the organization may face credential stuffing attacks,
-phishing attempts, and unauthorized access risks.
+email_regex = r"^[\w\.-]+@[\w\.-]+\.\w+$"
 
-Recommendation:
+if re.match(email_regex, target):
+
+    print("[+] Valid Email Format Detected")
+
+    domain = target.split("@")[1]
+
+    # DOMAIN RESOLUTION
+
+    try:
+
+        ip = socket.gethostbyname(domain)
+
+        print(f"[+] Domain Resolved Successfully: {ip}")
+
+    except:
+
+        print("[-] Domain Resolution Failed")
+
+    print("\n===================================================")
+    print("            EXPOSURE ASSESSMENT")
+    print("===================================================\n")
+
+    # HIGH-RISK EMAILS
+
+    risky_names = [
+        "admin",
+        "support",
+        "hr",
+        "finance",
+        "security",
+        "it"
+    ]
+
+    username = target.split("@")[0].lower()
+
+    if username in risky_names:
+
+        print(f"[!] High-Value Target Email Detected: {username}")
+        print("Risk Level: HIGH")
+
+    else:
+
+        print("[+] Standard User Email Detected")
+        print("Risk Level: MEDIUM")
+
+    print("\n===================================================")
+
+    print("""
+Potential Risks:
+- Credential stuffing
+- Phishing campaigns
+- Password reuse attacks
+- Business Email Compromise (BEC)
+
+Security Recommendations:
 - Enable MFA
-- Enforce password rotation
-- Monitor leaked credentials
+- Enforce strong password policies
+- Monitor breach intelligence platforms
+- Conduct phishing awareness training
 
 Compliance Mapping:
 ISO 27001 A.5.7
 NIST PR.AC-1
 PCI-DSS Requirement 8
 """)
+
+else:
+
+    print("[-] Invalid Email Address Format")
